@@ -2059,8 +2059,8 @@ def compact(text):
                     i += 1
                 n = line[i-1]   # last list char
                 line = line[i:].strip()
-                if line: # FIXME: n is '"'
-                    page.append(listItem[n] % line)
+                if line:
+                    page.append(listItem.get(n, '<li>%s</<li>') % line)
             else:
                 continue
         elif len(listLevel):
